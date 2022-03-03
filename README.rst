@@ -1,3 +1,3 @@
-Cascade Readthedocs documentation
+Cascade ReadTheDocs documentation
 =======================================
 
