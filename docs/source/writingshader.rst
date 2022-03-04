@@ -1,7 +1,7 @@
 Writing a shader
 ================
 
-In Cascade effects are implemented as **GLSL** shaders and processed on the GPU.
+In **Cascade**, effects are implemented as **GLSL** shaders and processed on the GPU.
 
 This has several advantages:
 
@@ -30,9 +30,9 @@ Now, we need to create a **GLSL Shader** node. Right click on the node graph (bo
 
 Connect the output from the **Read** node to the **RGB back** input of the **GLSL shader** node. Click the **GLSL shader** node and press **F4** to view it.
 
-The image should be the same, since the default shader does not do anything useful.
+The image should be the same as before, since the default shader does not do anything except for passing the image through.
 
-On the right side you will now see the code editor, containing a boilerplate shader. You can click and drag to expand the window, so you can see the code a little better.
+On the right side you will now see the code editor, containing the default shader. You can click and drag to expand the window, so you can see the code a little better.
 
 Your setup should look similar to this:
 
@@ -78,11 +78,11 @@ Most of the things here you don't have to worry about, let's go through the impo
    layout (binding = 2, rgba32f) uniform image2D outputImage;
 
 In the beginning the inputs and outputs are declared. There are two images on the input side and one on the output. Since we only have the back input connected in the node graph,
-we are only going to worry about that image.
+we are only going to worry about the **inputBack** image.
 
-Then we have a couple of convenience functions, to make life easier.
+Following are a couple of convenience functions, to make life easier.
 
-.. code-block:: c
+.. code-block:: glsl
 
    ivec2 pixelCoords = ivec2(gl_GlobalInvocationID.xy);
 
