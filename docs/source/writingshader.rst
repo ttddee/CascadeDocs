@@ -1,13 +1,13 @@
 Writing a shader
 ================
 
-In Cascade effects are implemented as `GLSL` shaders and processed on the GPU.
+In Cascade effects are implemented as ``GLSL`` shaders and processed on the GPU.
 
 This has several advantages:
 
 * The parallel nature of GPU processing is a perfect fit for image processing. That means it's fast.
-* `GLSL` is a simple language, that is easy to learn.
-* Processing algorithms are are contained in small, portable shader files.
+* ``GLSL`` is a simple language that is easy to learn.
+* Processing algorithms are contained in small, portable shader files.
 * There exists a large amount of reference code for all kinds of image processing applications.
 
 Here we are going to see how we can write our own shader, and run it on the GPU.
@@ -15,20 +15,20 @@ Here we are going to see how we can write our own shader, and run it on the GPU.
 What is GLSL
 ------------
 
-The `OpenGL Shading Language` is the pricipal shading language for `OpenGL` with a syntax inpired by `C`.
+The ``OpenGL Shading Language`` is the principal shading language for ``OpenGL`` with a syntax inpired by ``C``.
 
-Every `GLSL` shader is a self-contained program, to be run on the GPU.
+Every ``GLSL`` shader is a self-contained program, to be run on the GPU.
 
 Getting started
 ---------------
 
-Fire up `Cascade` and load an image in the `Read Node`. You do this by double-clicking the node and then clicking on the `Load` button.
+Fire up ``Cascade`` and load an image in the ``Read Node``. You do this by double-clicking the node and then clicking on the ``Load`` button.
 
-To view the image, with the `Read` node still selected, press `F4`.
+To view the image, with the ``Read`` node still selected, press ``F4``.
 
-Now, we need to create a `GLSL Shader` node. Right click on the node graph (bottom window) and in the menu choose `Filter->GLSL Shader`.
+Now, we need to create a ``GLSL Shader`` node. Right click on the node graph (bottom window) and in the menu choose ``Filter->GLSL Shader``.
 
-Connect the output from the `Read` node to the RGB back input of the `GLSL shader` node. Click the `GLSL shader` node and press `F4` to view it.
+Connect the output from the ``Read`` node to the RGB back input of the ``GLSL shader`` node. Click the ``GLSL shader`` node and press ``F4`` to view it.
 
 The image should be the same, since the default shader does not do anything useful.
 
@@ -36,7 +36,7 @@ On the right side you will now see the code editor, containing a boilerplate sha
 
 Your setup should now look similar to this:
 
-.. image:: https://github.com/ttddee/CascadeDocs/tree/main/docs/source/image/shaderwrite01.png
+.. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/shaderwrite01.png
 
 The default shader
 ------------------
@@ -86,7 +86,7 @@ Then we have a couple of convenience functions, to make life easier.
 
    ivec2 pixelCoords = ivec2(gl_GlobalInvocationID.xy);
 
-This gets the current pixel coordinates and stores them in the integer vector `pixelCoords`. 
+This gets the current pixel coordinates and stores them in the integer vector ``pixelCoords``. 
 
 A GLSL shader gets executed for every pixel in the image. This variable tells us which pixel we are currently working on.
 
@@ -94,19 +94,19 @@ A GLSL shader gets executed for every pixel in the image. This variable tells us
 
    ivec2 imageSize = imageSize(inputBack);
 
-This gets the image size and stores it in the variable `imageSize` for later use.
+This gets the image size and stores it in the variable ``imageSize`` for later use.
 
 .. code-block glsl
 
    vec4 pixelBack = imageLoad(inputBack, pixelCoords).rgba;
 
-Loads the RGBA values of the **back** image, at the current pixel coordinates, into `pixelBack`.
+Loads the RGBA values of the **back** image, at the current pixel coordinates, into ``pixelBack``.
 
 .. code-block glsl
 
    vec4 pixelFront = imageLoad(inputFront, pixelCoords).rgba;
 
-Loads the RGBA values of the **front** image, at the current pixel coordinates, into `pixelFront`.
+Loads the RGBA values of the **front** image, at the current pixel coordinates, into ``pixelFront``.
 
 Since there is nothing in our front input, we ignore this value for the example.
 
@@ -129,7 +129,7 @@ This is the main function and the entry point for our shader.
    vec4 result = pixelBack;
    imageStore(outputImage, pixelCoords, result);
 
-Here you can see that the `inputBack` value is copied into `result` and then saved to the output image via `imageStore`.
+Here you can see that the ``inputBack`` value is copied into ``result`` and then saved to the output image via ``imageStore``.
 
 That's what this shader does, it copies the input to the output without doing anything.
 
@@ -152,7 +152,7 @@ to
 
 you will see that this inverts our image. 
 
-.. image:: https://github.com/ttddee/CascadeDocs/tree/main/docs/source/image/shaderwrite02.png
+.. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/shaderwrite02.png
 
 Let's say we want some inverted vertical stripes, we could do something like this:
 
@@ -167,11 +167,11 @@ Let's say we want some inverted vertical stripes, we could do something like thi
 
 which gives us this:
 
-.. image:: https://github.com/ttddee/CascadeDocs/tree/main/docs/source/image/shaderwrite03.png
+.. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/shaderwrite03.png
 
-Of course, this is a very simple example, but I hope it helps as an explanation on how to create your own effects in `Cascade`.
+Of course, this is a very simple example, but I hope it helps as an explanation on how to create your own effects in ``Cascade``.
 
-You could now render your image, using a write node. You can also save your node setup, including any shaders you created by going to `File->Dave Project`.
+You could now render your image, using a write node. You can also save your node setup, including any shaders you created by going to ``File->Dave Project``.
 
 If you need inspiration on shaders or you want to figure out how certain effects are implemented, I recommend checking out `Shadertoy <https://www.shadertoy.com/>` and `ISF <https://editor.isf.video/shaders?q=&category=&sort=Date+Created+%E2%86%93&page=0>`.
 
