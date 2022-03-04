@@ -1,7 +1,7 @@
 Usage
 =====
 
-Cascade is available as a portable build in the form of Windows binaries or Linux appimage.
+Cascade is available as a portable build in the form of Windows binaries or a Linux appimage.
 
 You can find the latest version on the `releases page <https://github.com/ttddee/Cascade/releases>`_ of the Github repository.
 
@@ -22,17 +22,17 @@ Linux
 
 Download the AppImage from the releases page and make it executable.
 
-.. code-block::
+.. code-block:: console
 
    chmod a+x Cascade-Image-Editor-x86_64-xxx-release-xxx.AppImage
 
 Then you can run the AppImage like so.
 
-.. code-block:: 
+.. code-block:: console
 
    ./Cascade-Image-Editor-x86_64-xxx-release-xxx.AppImage
 
 .. note:: 
-   
+
    Cascade creates some files for logging and persistence when you first start it. In order to keep things neat, it is best to put the AppImage into its own folder.
 
