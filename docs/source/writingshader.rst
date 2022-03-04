@@ -43,7 +43,7 @@ The default shader
 
 The code editor contains the following:
 
-.. code-block:: c
+.. code-block:: glsl
 
    #version 430
 
@@ -70,7 +70,7 @@ The code editor contains the following:
 
 Most of the things here you don't have to worry about, let's go through the important parts.
 
-.. code-block:: c
+.. code-block:: glsl
 
    layout (local_size_x = 16, local_size_y = 16) in;
    layout (binding = 0, rgba32f) uniform readonly image2D inputBack;
@@ -90,19 +90,19 @@ This gets the current pixel coordinates and stores them in the integer vector **
 
 A GLSL shader gets executed for every pixel in the image. This variable tells us which pixel we are currently working on.
 
-.. code-block:: c
+.. code-block:: glsl
 
    ivec2 imageSize = imageSize(inputBack);
 
 This gets the image size and stores it in the variable **imageSize** for later use.
 
-.. code-block:: c
+.. code-block:: glsl
 
    vec4 pixelBack = imageLoad(inputBack, pixelCoords).rgba;
 
 Loads the RGBA values of the **back** image, at the current pixel coordinates, into **pixelBack**.
 
-.. code-block:: c
+.. code-block:: glsl
 
    vec4 pixelFront = imageLoad(inputFront, pixelCoords).rgba;
 
@@ -112,7 +112,7 @@ Since there is nothing in our front input, we ignore this value for the example.
 
 Now, this is where it gets a little more interesting:
 
-.. code-block:: c
+.. code-block:: glsl
 
    void main()
    {
@@ -124,7 +124,7 @@ Now, this is where it gets a little more interesting:
 
 This is the main function and the entry point for our shader.
 
-.. code-block:: c
+.. code-block:: glsl
 
    vec4 result = pixelBack;
    imageStore(outputImage, pixelCoords, result);
@@ -140,13 +140,13 @@ Now, let's see how we can do something with our image.
 
 If you change the line
     
-.. code-block:: c
+.. code-block:: glsl
 
    vec4 result = pixelBack;
 
 to
 
-.. code-block:: c
+.. code-block:: glsl
 
     vec4 result = 1.0 - pixelBack;
 
@@ -156,7 +156,7 @@ you will see that this inverts our image.
 
 Let's say we want some inverted vertical stripes, we could do something like this:
 
-.. code-block:: c
+.. code-block:: glsl
 
    vec4 result = pixelBack;
 
@@ -171,7 +171,7 @@ which gives us this:
 
 Of course, this is a very simple example, but I hope it helps as an explanation on how to create your own effects in **Cascade**.
 
-You could now render your image, using a write node. You can also save your node setup, including any shaders you created by going to ``File->Dave Project``.
+You could now render your image, using a write node. You can also save your node setup, including any shaders you created by going to **File->Save Project**.
 
 If you need inspiration on shaders or you want to figure out how certain effects are implemented, I recommend checking out `Shadertoy <https://www.shadertoy.com/>`_ and `ISF <https://editor.isf.video/shaders?q=&category=&sort=Date+Created+%E2%86%93&page=0>`_.
 
