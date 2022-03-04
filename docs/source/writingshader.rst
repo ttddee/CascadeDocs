@@ -22,19 +22,19 @@ Every **GLSL** shader is a self-contained program, to be run on the GPU.
 Getting started
 ---------------
 
-Fire up **Cascad** and load an image in the **Read Node**. You do this by double-clicking the node and then clicking on the **Load** button.
+Fire up **Cascade** and load an image in the **Read Node**. You do this by double-clicking the node and then clicking on the **Load** button.
 
 To view the image, with the **Read** node still selected, press **F4**.
 
-Now, we need to create a **GLSL Shader** node. Right click on the node graph (bottom window) and in the menu choose ``Filter->GLSL Shader``.
+Now, we need to create a **GLSL Shader** node. Right click on the node graph (bottom window) and in the menu choose **Filter->GLSL Shader**.
 
-Connect the output from the **Read** node to the RGB back input of the **GLSL shader** node. Click the **GLSL shader** node and press **F4** to view it.
+Connect the output from the **Read** node to the **RGB back** input of the **GLSL shader** node. Click the **GLSL shader** node and press **F4** to view it.
 
 The image should be the same, since the default shader does not do anything useful.
 
 On the right side you will now see the code editor, containing a boilerplate shader. You can click and drag to expand the window, so you can see the code a little better.
 
-Your setup should now look similar to this:
+Your setup should look similar to this:
 
 .. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/shaderwrite01.png?raw=true
 
@@ -43,7 +43,7 @@ The default shader
 
 The code editor contains the following:
 
-.. code-block glsl
+.. code-block:: c
 
    #version 430
 
@@ -70,7 +70,7 @@ The code editor contains the following:
 
 Most of the things here you don't have to worry about, let's go through the important parts.
 
-.. code-block glsl
+.. code-block:: c
 
    layout (local_size_x = 16, local_size_y = 16) in;
    layout (binding = 0, rgba32f) uniform readonly image2D inputBack;
@@ -82,7 +82,7 @@ we are only going to worry about that image.
 
 Then we have a couple of convenience functions, to make life easier.
 
-.. code-block glsl
+.. code-block:: c
 
    ivec2 pixelCoords = ivec2(gl_GlobalInvocationID.xy);
 
@@ -90,19 +90,19 @@ This gets the current pixel coordinates and stores them in the integer vector **
 
 A GLSL shader gets executed for every pixel in the image. This variable tells us which pixel we are currently working on.
 
-.. code-block glsl
+.. code-block:: c
 
    ivec2 imageSize = imageSize(inputBack);
 
 This gets the image size and stores it in the variable **imageSize** for later use.
 
-.. code-block glsl
+.. code-block:: c
 
    vec4 pixelBack = imageLoad(inputBack, pixelCoords).rgba;
 
 Loads the RGBA values of the **back** image, at the current pixel coordinates, into **pixelBack**.
 
-.. code-block glsl
+.. code-block:: c
 
    vec4 pixelFront = imageLoad(inputFront, pixelCoords).rgba;
 
@@ -112,7 +112,7 @@ Since there is nothing in our front input, we ignore this value for the example.
 
 Now, this is where it gets a little more interesting:
 
-.. code-block glsl
+.. code-block:: c
 
    void main()
    {
@@ -124,7 +124,7 @@ Now, this is where it gets a little more interesting:
 
 This is the main function and the entry point for our shader.
 
-.. code-block glsl
+.. code-block:: c
 
    vec4 result = pixelBack;
    imageStore(outputImage, pixelCoords, result);
@@ -140,23 +140,23 @@ Now, let's see how we can do something with our image.
 
 If you change the line
     
-.. code-block glsl
+.. code-block:: c
 
    vec4 result = pixelBack;
 
 to
 
-.. code-block glsl
+.. code-block:: c
 
     vec4 result = 1.0 - pixelBack;
 
 you will see that this inverts our image. 
 
-.. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/shaderwrite02.png
+.. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/shaderwrite02.png?raw=true
 
 Let's say we want some inverted vertical stripes, we could do something like this:
 
-.. code-block glsl
+.. code-block:: c
 
    vec4 result = pixelBack;
 
@@ -167,7 +167,7 @@ Let's say we want some inverted vertical stripes, we could do something like thi
 
 which gives us this:
 
-.. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/shaderwrite03.png
+.. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/shaderwrite03.png?raw=true
 
 Of course, this is a very simple example, but I hope it helps as an explanation on how to create your own effects in **Cascade**.
 
