@@ -1,34 +1,35 @@
 Usage
 =====
 
-.. _installation:
+Cascade is available as a portable build in the form of Windows binaries or Linux appimage.
 
-Installation
+You can find the latest version on the `Link releases page <https://github.com/ttddee/Cascade/releases>` of the Github repository.
+
+Requirements
 ------------
 
-To use Lumache, first install it using pip:
+In order to run the application you will need a graphics card and driver that is able to run Vulkan.
 
-.. code-block:: console
+Vulkan is widely supported nowadays. If you are in doubt, you can check if your GPU is supported `Link here <https://vulkan.gpuinfo.org/>`.
 
-   (.venv) $ pip install lumache
+Windows
+-------
 
-Creating recipes
-----------------
+Simply download the zip file from the releases page, extract it, and run **Cascade.exe**.
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+Linux
+-----
 
-.. autofunction:: lumache.get_random_ingredients
+Download the AppImage from the releases page and make it executable.
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
+.. code-block:: 
+   chmod a+x Cascade-Image-Editor-x86_64-xxx-release-xxx.AppImage
 
-.. autoexception:: lumache.InvalidKindError
+Then you can run the AppImage like so.
 
-For example:
+.. code-block:: 
+   ./Cascade-Image-Editor-x86_64-xxx-release-xxx.AppImage
 
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
+.. note:: 
+   Cascade creates some files for logging and persistence when you first start it. In order to keep things neat, it is best to put the AppImage into its own folder.
 
