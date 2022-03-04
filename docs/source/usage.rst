@@ -3,19 +3,19 @@ Usage
 
 Cascade is available as a portable build in the form of Windows binaries or Linux appimage.
 
-You can find the latest version on the `Link releases page <https://github.com/ttddee/Cascade/releases>` of the Github repository.
+You can find the latest version on the `Link releases page<https://github.com/ttddee/Cascade/releases>`_ of the Github repository.
 
 Requirements
 ------------
 
 In order to run the application you will need a graphics card and driver that is able to run Vulkan.
 
-Vulkan is widely supported nowadays. If you are in doubt, you can check if your GPU is supported `Link here <https://vulkan.gpuinfo.org/>`.
+Vulkan is widely supported nowadays. If you are in doubt, you can check if your GPU is supported `Link here <https://vulkan.gpuinfo.org/>`_.
 
 Windows
 -------
 
-Simply download the zip file from the releases page, extract it, and run **Cascade.exe**.
+Simply download the zip file from the releases page, extract it, and run `Cascade.exe`.
 
 Linux
 -----
