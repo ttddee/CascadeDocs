@@ -26,9 +26,9 @@ Fire up **Cascade** and load an image in the **Read Node**. You do this by doubl
 
 To view the image, with the **Read** node still selected, press **F4**.
 
-Now, we need to create a **GLSL Shader** node. Right click on the node graph (bottom window) and in the menu choose **Filter->GLSL Shader**.
+Now, we need to create a **GLSL Shader** node. Right click on the node graph (bottom window) and in the menu choose **Filter > GLSL Shader**.
 
-Connect the output from the **Read** node to the **RGB back** input of the **GLSL shader** node. Click the **GLSL shader** node and press **F4** to view it.
+Connect the output from the **Read** node to the **RGB back** input of the **GLSL Shader** node. Click the **GLSL Shader** node and press **F4** to view it.
 
 The image should be the same as before, since the default shader does not do anything except for passing the image through.
 
@@ -78,7 +78,7 @@ Most of the things here you don't have to worry about, let's go through the impo
    layout (binding = 2, rgba32f) uniform image2D outputImage;
 
 In the beginning the inputs and outputs are declared. There are two images on the input side and one on the output. Since we only have the back input connected in the node graph,
-we are only going to worry about the **inputBack** image.
+we are only going to use the **inputBack** image.
 
 Following are a couple of convenience functions, to make life easier.
 
@@ -108,7 +108,7 @@ Loads the RGBA values of the **back** image, at the current pixel coordinates, i
 
 Loads the RGBA values of the **front** image, at the current pixel coordinates, into **pixelFront**.
 
-Since there is nothing in our front input, we ignore this value for the example.
+Since there is nothing connected to our front input, we ignore this value for the example.
 
 Now, this is where it gets a little more interesting:
 
@@ -131,7 +131,7 @@ This is the main function and the entry point for our shader.
 
 Here you can see that the **inputBack** value is copied into **result** and then saved to the output image via **imageStore**.
 
-That's what this shader does, it copies the input to the output without doing anything.
+That's what this shader does, it copies the input to the output, without doing anything else.
 
 Writing our own shader
 ----------------------
@@ -171,7 +171,7 @@ which gives us this:
 
 Of course, this is a very simple example, but I hope it helps as an explanation on how to create your own effects in **Cascade**.
 
-You could now render your image, using a write node. You can also save your node setup, including any shaders you created by going to **File->Save Project**.
+You could now render your image, using a write node. You can also save your node setup, including any shaders you created by going to **File > Save Project**.
 
 If you need inspiration on shaders or you want to figure out how certain effects are implemented, I recommend checking out `Shadertoy <https://www.shadertoy.com/>`_ and `ISF <https://editor.isf.video/shaders?q=&category=&sort=Date+Created+%E2%86%93&page=0>`_.
 
