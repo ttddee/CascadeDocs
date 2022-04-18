@@ -6,8 +6,8 @@ project = 'Cascade'
 copyright = '2022, ttddee'
 author = 'ttddee'
 
-release = '0.1'
-version = '0.1.9'
+release = '0.2'
+version = '0.2.0'
 
 # -- General configuration
 
