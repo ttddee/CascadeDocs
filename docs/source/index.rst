@@ -15,5 +15,6 @@ Contents
 .. toctree::
 
    usage
+   buildingfromsource
    writingshader
    isfshaders
