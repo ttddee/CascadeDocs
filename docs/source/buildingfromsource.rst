@@ -40,7 +40,7 @@ Now you can install all other dependencies using the command below:
 
     .\vcpkg\vcpkg --feature-flags="versions" --triplet=x64-windows  install
 
-It will take a while to compile but upon completion you should be able to open the project in Qt Creator, configure your compiler and build.
+This will take a while to compile but upon completion you should be able to open the project in Qt Creator, configure your environment and build.
 
 Ubuntu (21.10)
 --------------
@@ -85,10 +85,10 @@ We have to build OpenColorIO ourselves, because the version supplied by Ubuntu i
 
     make install
 
-We will also download glslang binaries:
+We will also download `glslang` binaries:
 
 .. code-block:: console
-    
+
     cd ../..
 
     mkdir glslang
