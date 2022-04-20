@@ -49,6 +49,9 @@ In the properties panel you can adjust the strength of the effect.
 
 .. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/quickstart07.gif?raw=true
 
+.. note::
+    Whenever you want to reset a slider control to its default value you can do so by left-clicking it with the `Ctrl-Key` pressed.
+
 If you want to save the result image to disk, connect the output of the `Pixelate Node` to the input of the `Write Node`.
 
 In the `Write Node` properties set a folder and a file name and choose a file type.

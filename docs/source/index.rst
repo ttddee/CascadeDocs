@@ -18,6 +18,7 @@ Contents
 
    usage
    quickstart
+   contributing
    buildingfromsource
    writingshader
    isfshaders
