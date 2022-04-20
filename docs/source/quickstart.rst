@@ -3,7 +3,7 @@ Quickstart
 
 This is a quick introduction on how to use `Cascade`.
 
-Navigating the node graph
+Navigating the Node Graph
 -------------------------
 
 The node graph is the window you see at the bottom. When the application starts there will be two default nodes created for you. A `Read` and a `Write`.
@@ -26,7 +26,7 @@ There is a little box under the viewer that shows you what you are currently loo
 
 .. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/quickstart04.png?raw=true
 
-This can be toggled between five states:
+The viewer can be toggled between five states:
 
 - RGB Front input (F1)
 - RGB Back input (F2)
@@ -35,15 +35,15 @@ This can be toggled between five states:
 
 Now, let's do something with our image.
 
-Right-click in the node graph to bring up the context menu and navigate to `Filter > Pixelate`.
+Right-click anywhere in the node graph to bring up the context menu and navigate to `Filter > Pixelate`.
 
-.. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/quickstart04.png?raw=true
+.. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/quickstart05.png?raw=true
 
-This creates a `Pixelate Node`. Now, left click and drag from the green output of the `Read Node` to create a connection and hook it up to the input of the pixelate node.
+This creates a `Pixelate Node`. Now, left click and drag from the green output of the `Read Node` to create a connection and hook it up to the input of the `Pixelate Node`.
 
 .. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/quickstart06.gif?raw=true
 
-Now you should see the pixelation effect on your image. If not, make sure to click the `Pixelate Node` and press `F4`.
+You should see the pixelation effect on your image. If not, make sure to click the `Pixelate Node` and press `F4`.
 
 In the properties panel you can adjust the strength of the effect.
 
@@ -51,7 +51,7 @@ In the properties panel you can adjust the strength of the effect.
 
 If you want to save the result image to disk, connect the output of the `Pixelate Node` to the input of the `Write Node`.
 
-In the `Write Node`s properties set a folder and a file name and choose a file type.
+In the `Write Node` properties set a folder and a file name and choose a file type.
 
 .. image:: https://github.com/ttddee/CascadeDocs/blob/main/docs/source/image/quickstart08.png?raw=true
 
