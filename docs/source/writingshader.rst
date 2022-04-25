@@ -53,11 +53,10 @@ The code editor contains the following:
    layout (binding = 2, rgba32f) uniform image2D outputImage;
 
    ivec2 pixelCoords = ivec2(gl_GlobalInvocationID.xy);
-
-   ivec2 imageSize = imageSize(inputBack);
+   ivec2 imgSize = imageSize(inputBack);
+   vec2 pixelCoordsNorm = vec2(float(pixelCoords.x) / imgSize.x, float(pixelCoords.y) / imgSize.y);
 
    vec4 pixelBack = imageLoad(inputBack, pixelCoords).rgba;
-
    vec4 pixelFront = imageLoad(inputFront, pixelCoords).rgba;
 
    void main()
@@ -92,9 +91,15 @@ A GLSL shader gets executed for every pixel in the image. This variable tells us
 
 .. code-block:: glsl
 
-   ivec2 imageSize = imageSize(inputBack);
+   ivec2 imgSize = imageSize(inputBack);
 
-This gets the image size and stores it in the variable **imageSize** for later use.
+This gets the image size and stores it in the variable **imgSize** for later use.
+
+.. code-block:: glsl
+
+   vec2 pixelCoordsNorm = vec2(float(pixelCoords.x) / imgSize.x, float(pixelCoords.y) / imgSize.y);
+
+Calculates the normalized pixel coordinates and stores them in **pixelCoordsNorm**.
 
 .. code-block:: glsl
 
