@@ -29,9 +29,7 @@ Enter the project directory and install vcpkg:
 .. code-block:: console
 
     cd Cascade
-
     git clone https://github.com/microsoft/vcpkg
-
     .\vcpkg\bootstrap-vcpkg.bat
 
 Now you can install all other dependencies using the command below:
@@ -50,7 +48,6 @@ We are going to download the repository into the home directory.
 .. code-block:: console
 
     cd ~
-
     git clone https://github.com/ttddee/Cascade
 
 Install dependencies:
@@ -64,41 +61,26 @@ We have to build OpenColorIO ourselves, because the version supplied by Ubuntu i
 .. code-block:: console
 
     mkdir external
-
     cd external
-
     git clone https://github.com/AcademySoftwareFoundation/OpenColorIO
-
     cd OpenColorIO
-
     git checkout tags/v2.1.0
-
     mkdir build
-
     mkdir install
-
     cd build
-
-    cmake -DCMAKE_INSTALL_PREFIX=~/Cascade/external/OpenColorIO/install ~/Cascade/external/OpenColorIO -DOCIO_BUILD_PYTHON=OFF -DOCIO_BUILD_APPS=OFF -DOCIO_BUILD_TESTS=OFF -DOCIO_BUILD_GPU_TESTS=OFF -DCMAKE_BUILD_TYPE=Debug -D CMAKE_CXX_COMPILER=/usr/bin/gcc
-
+    cmake -DCMAKE_INSTALL_PREFIX= ../install .. -DOCIO_BUILD_PYTHON=OFF -DOCIO_BUILD_APPS=OFF -DOCIO_BUILD_TESTS=OFF -DOCIO_BUILD_GPU_TESTS=OFF -DCMAKE_BUILD_TYPE=Debug
     make -j8
-
     make install
 
 We will also download `glslang` binaries:
 
 .. code-block:: console
 
-    cd ../..
-
+    cd ~/Cascade
     mkdir glslang
-
     cd glslang
-
     wget https://github.com/KhronosGroup/glslang/releases/download/master-tot/glslang-master-linux-Debug.zip
-
     unzip glslang-master-linux-Debug.zip
-
     rm glslang-master-linux-Debug.zip
 
 Now, open the file `Cascade.pro` with QtCreator and configure it to use Qt5, GCC as compiler and GDB as debugger.
