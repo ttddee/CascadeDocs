@@ -40,47 +40,17 @@ Now you can install all other dependencies using the command below:
 
 This will take a while to compile but upon completion you should be able to open the project in Qt Creator, configure your environment and build.
 
-Ubuntu (21.10)
+GNU/Linux
 --------------
 
-We are going to download the repository into the home directory.
+To download source files and dependencies, you can run:
 
 .. code-block:: console
 
-    cd ~
     git clone https://github.com/ttddee/Cascade
+    cd Cascade/scripts
+    sh install-deps.sh
+    
+This script might ask you for the administrator password if a package dependency can be insalled via the system package manager.
 
-Install dependencies:
-
-.. code-block:: console
-
-    apt -y install libopenimageio-dev libgtest-dev libtbb-dev qtcreator build-essential qtbase5-dev qt5-qmake qtbase5-dev-tools libopenexr-dev cmake libglew-dev freeglut3-dev
-
-We have to build OpenColorIO ourselves, because the version supplied by Ubuntu is too old. Run the following commands:
-
-.. code-block:: console
-
-    mkdir external
-    cd external
-    git clone https://github.com/AcademySoftwareFoundation/OpenColorIO
-    cd OpenColorIO
-    git checkout tags/v2.1.0
-    mkdir build
-    mkdir install
-    cd build
-    cmake -DCMAKE_INSTALL_PREFIX= ../install .. -DOCIO_BUILD_PYTHON=OFF -DOCIO_BUILD_APPS=OFF -DOCIO_BUILD_TESTS=OFF -DOCIO_BUILD_GPU_TESTS=OFF -DCMAKE_BUILD_TYPE=Debug
-    make -j8
-    make install
-
-We will also download `glslang` binaries:
-
-.. code-block:: console
-
-    cd ~/Cascade
-    mkdir glslang
-    cd glslang
-    wget https://github.com/KhronosGroup/glslang/releases/download/master-tot/glslang-master-linux-Debug.zip
-    unzip glslang-master-linux-Debug.zip
-    rm glslang-master-linux-Debug.zip
-
-Now, open the file `Cascade.pro` with QtCreator and configure it to use Qt5, GCC as compiler and GDB as debugger.
+Now, open the file `Cascade.pro` with QtCreator.
