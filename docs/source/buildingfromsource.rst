@@ -63,6 +63,5 @@ To download source files and dependencies, you can run:
     git clone https://github.com/ttddee/Cascade
     cd Cascade/scripts
     sh install-deps.sh
-    cd ..
 
 Now, open the file `Cascade.pro` with QtCreator.
