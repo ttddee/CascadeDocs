@@ -48,7 +48,7 @@ You need to download the repository.
 
     git clone https://github.com/ttddee/Cascade
 
-To install dependencies run script:
+To install dependencies run the script:
 
 .. code-block:: console
 
