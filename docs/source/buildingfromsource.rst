@@ -42,19 +42,6 @@ This will take a while to compile but upon completion you should be able to open
 
 GNU/Linux
 --------------
-You need to download the repository.
-
-.. code-block:: console
-
-    git clone https://github.com/ttddee/Cascade
-
-To install dependencies run the script:
-
-.. code-block:: console
-
-    ./scripts/install-deps.sh
-
-This script might ask you for the administrator password if a package dependency can be insalled via the system package manager.
 
 To download source files and dependencies, you can run:
 
@@ -63,5 +50,7 @@ To download source files and dependencies, you can run:
     git clone https://github.com/ttddee/Cascade
     cd Cascade/scripts
     sh install-deps.sh
+    
+This script might ask you for the administrator password if a package dependency can be insalled via the system package manager.
 
 Now, open the file `Cascade.pro` with QtCreator.
