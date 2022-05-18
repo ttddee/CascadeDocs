@@ -8,13 +8,19 @@ To build the project on Windows, you will have to install `Qt` and the `Vulkan S
 
 Windows versions are compiled with `MSVC 2019 64bit`.
 
-Install Qt for open source using the `official installer <https://www.qt.io/>`_. At the moment we are using version 5.15.0, installed into C:\Qt515.
+Install Qt for open source using the `official installer <https://www.qt.io/>`_. At the moment we are using version 5.15.2.
 
-Get the `Vulkan SDK <https://www.lunarg.com/vulkan-sdk/>`_ and install it into `C:\\VulkanSDK`. We are currently using version `1.2.198.1`. If you want to use a newer version, you will have to change this line in `Cascade.pro` to the correct version number:
+Make sure you have an environment variable `QT5_DIR` pointing to the path of your Qt installation. The path might look like this:
 
 .. code-block:: console
 
-    INCLUDEPATH += C:/VulkanSDK/1.2.198.1/include
+    C:\Qt515\5.15.2\msvc2019_64
+
+Get the `Vulkan SDK <https://www.lunarg.com/vulkan-sdk/>`_ and install it. We are currently using version `1.2.198.1`. The environment variable `VULKAN_SDK` has to be set to your Vulkan SDK. For example:
+
+.. code-block:: console
+
+    C:/VulkanSDK/1.2.198.1
 
 It's easiest to use Qt Creator as IDE, but feel free to use Visual Studio if you want.
 
